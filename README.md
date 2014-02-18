@@ -14,16 +14,14 @@ Class library to take a string input with tokens and replace with LiteralControl
 ## Instructions ##
 
 1. Add this project to your solution or simple copy the <code>ControlReplacer.cs</code> class into your project.
-2. Initial class and assign what begin and ends your tokens
+2. Initialize the class and assign what begin and ends your tokens
 ```C#
 var replacer = new ControlReplacer("[", "]");
 ```
-
 3. Append one or more text blocks to the class
 ```C#
 replacer.Append("I am a block of text with a [BUTTON] token.");
 ```
-
 4. Identity the token and what you would like to replace it with.
 ```C#
 replacer.Replace("[BUTTON]", new Func<Control>(() =>
@@ -34,12 +32,10 @@ replacer.Replace("[BUTTON]", new Func<Control>(() =>
     return buttonCtl;
 })());
 ```
-
 5. Another replacement example
 ```C#
 replacer.Replace("[BUTTON]", LoadControl("/PathToControl.ascx"));
 ```
-
 6. Add the replaced controls to another control. Recommend a <code>PlaceHolder</code> control
 ```C#
 placeHolderOutput.Controls.Add(replacer.Output());
