@@ -141,34 +141,37 @@ namespace InspectorIT
         /// <param name="text">The text.</param>
         public void Append(string text)
         {
-            var snippet = new TokenControlReplacerSnippet();
-            snippet.OriginalText = text;
-
-            ExtractTokens(snippet);
-
-            for (int i = 0; i < snippet.Tokens.Count; i++)
+            if (text != "")
             {
-                Token token = snippet.Tokens[i];
-                if (i == 0)
+                var snippet = new TokenControlReplacerSnippet();
+                snippet.OriginalText = text;
+
+                ExtractTokens(snippet);
+
+                for (int i = 0; i < snippet.Tokens.Count; i++)
                 {
-                    snippet.Controls.Controls.Add(new LiteralControl(text.Substring(0, token.Start)));
-                }
-                else
-                {
-                    snippet.Controls.Controls.Add(
-                        new LiteralControl(text.Substring(snippet.Tokens[i - 1].End,
-                            token.Start - snippet.Tokens[i - 1].End)));
-                }
+                    Token token = snippet.Tokens[i];
+                    if (i == 0)
+                    {
+                        snippet.Controls.Controls.Add(new LiteralControl(text.Substring(0, token.Start)));
+                    }
+                    else
+                    {
+                        snippet.Controls.Controls.Add(
+                            new LiteralControl(text.Substring(snippet.Tokens[i - 1].End,
+                                token.Start - snippet.Tokens[i - 1].End)));
+                    }
 
 
-                snippet.Controls.Controls.Add(new PlaceHolder { ID = token.Id });
+                    snippet.Controls.Controls.Add(new PlaceHolder {ID = token.Id});
+                }
+
+                snippet.Controls.Controls.Add(
+                    new LiteralControl(text.Substring(snippet.Tokens[snippet.Tokens.Count - 1].End)));
+
+
+                Snippets.Add(snippet);
             }
-
-            snippet.Controls.Controls.Add(
-                new LiteralControl(text.Substring(snippet.Tokens[snippet.Tokens.Count - 1].End)));
-
-
-            Snippets.Add(snippet);
         }
 
         /// <summary>

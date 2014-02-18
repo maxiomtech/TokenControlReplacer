@@ -13,7 +13,7 @@ Class library to take a string input with tokens and replace with LiteralControl
 
 ## Instructions ##
 
-* Add this project to your solution or simple copy the <code>ControlReplacer.cs</code> class into your project.
+* Add this project to your solution or simple copy the <code>TokenControlReplacer.cs</code> class into your project.
 * Initialize the class and assign what begin and ends your tokens
 ```C#
 var replacer = new TokenControlReplacer("[", "]");
