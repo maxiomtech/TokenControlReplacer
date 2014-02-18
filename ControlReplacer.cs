@@ -19,10 +19,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 
-/// <summary>
-/// The ControlReplacer namespace.
-/// </summary>
-namespace InspectorIT.ControlReplacer
+namespace InspectorIT
 {
     /// <summary>
     /// Class Token.
