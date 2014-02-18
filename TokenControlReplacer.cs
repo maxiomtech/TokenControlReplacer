@@ -75,12 +75,12 @@ namespace InspectorIT
     /// <summary>
     /// Class ControlReplacerSnippet.
     /// </summary>
-    internal class ControlReplacerSnippet
+    internal class TokenControlReplacerSnippet
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlReplacerSnippet"/> class.
+        /// Initializes a new instance of the <see cref="TokenControlReplacerSnippet"/> class.
         /// </summary>
-        public ControlReplacerSnippet()
+        public TokenControlReplacerSnippet()
         {
             Tokens = new List<Token>();
             Controls = new Control();
@@ -106,7 +106,7 @@ namespace InspectorIT
     /// <summary>
     /// Class ControlReplacer.
     /// </summary>
-    public class ControlReplacer
+    public class TokenControlReplacer
     {
         /// <summary>
         /// The token close
@@ -118,22 +118,22 @@ namespace InspectorIT
         private readonly string TokenOpen;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlReplacer"/> class.
+        /// Initializes a new instance of the <see cref="TokenControlReplacer"/> class.
         /// </summary>
         /// <param name="tokenOpen">The token open.</param>
         /// <param name="tokenClose">The token close.</param>
-        public ControlReplacer(string tokenOpen, string tokenClose)
+        public TokenControlReplacer(string tokenOpen, string tokenClose)
         {
             TokenOpen = tokenOpen;
             TokenClose = tokenClose;
-            Snippets = new List<ControlReplacerSnippet>();
+            Snippets = new List<TokenControlReplacerSnippet>();
         }
 
         /// <summary>
         /// Gets or sets the snippets.
         /// </summary>
         /// <value>The snippets.</value>
-        private List<ControlReplacerSnippet> Snippets { get; set; }
+        private List<TokenControlReplacerSnippet> Snippets { get; set; }
 
         /// <summary>
         /// Appends the specified text.
@@ -141,7 +141,7 @@ namespace InspectorIT
         /// <param name="text">The text.</param>
         public void Append(string text)
         {
-            var snippet = new ControlReplacerSnippet();
+            var snippet = new TokenControlReplacerSnippet();
             snippet.OriginalText = text;
 
             ExtractTokens(snippet);
@@ -176,7 +176,7 @@ namespace InspectorIT
         /// </summary>
         /// <param name="snippet">The snippet.</param>
         /// <exception cref="System.ArgumentException"></exception>
-        private void ExtractTokens(ControlReplacerSnippet snippet)
+        private void ExtractTokens(TokenControlReplacerSnippet snippet)
         {
             int last = 0;
             while (last < snippet.OriginalText.Length)
@@ -256,7 +256,7 @@ namespace InspectorIT
                 token = token.Replace(TokenOpen, "").Replace(TokenClose, "");
             }
 
-            foreach (ControlReplacerSnippet snippet in Snippets)
+            foreach (TokenControlReplacerSnippet snippet in Snippets)
             {
                 IEnumerable<Token> snippetsWithToken = snippet.Tokens.Where(x => x.TokenName == token);
                 if (snippetsWithToken.Any())
@@ -304,7 +304,7 @@ namespace InspectorIT
         public Control Output()
         {
             var masterCtl = new Control();
-            foreach (ControlReplacerSnippet snippet in Snippets)
+            foreach (TokenControlReplacerSnippet snippet in Snippets)
             {
                 masterCtl.Controls.Add(snippet.Controls);
             }

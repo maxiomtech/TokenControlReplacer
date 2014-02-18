@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ControlReplacer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("InspectorIT TokenControlReplacer")]
+[assembly: AssemblyDescription("Class library to take a string input with tokens and replace with LiteralControls and UserControls")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ControlReplacer")]
+[assembly: AssemblyCompany("InspectorIT")]
+[assembly: AssemblyProduct("TokenControlReplacer")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
