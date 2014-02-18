@@ -24,7 +24,7 @@ var replacer = new ControlReplacer("[", "]");
 replacer.Append("I am a block of text with a [BUTTON] token.");
 ```
 
-4.1 Identity the token and what you would like to replace it with.
+4. Identity the token and what you would like to replace it with.
 ```C#
 replacer.Replace("[BUTTON]", new Func<Control>(() =>
 {
@@ -34,10 +34,13 @@ replacer.Replace("[BUTTON]", new Func<Control>(() =>
     return buttonCtl;
 })());
 ```
-4.2 Another replacement example
-replacer.Replace("[BUTTON]", LoadControl("/PathToControl.ascx"));
 
-5. Add the replaced controls to another control. Recommend a <code>PlaceHolder</code> control
+5. Another replacement example
+```C#
+replacer.Replace("[BUTTON]", LoadControl("/PathToControl.ascx"));
+```
+
+6. Add the replaced controls to another control. Recommend a <code>PlaceHolder</code> control
 ```C#
 placeHolderOutput.Controls.Add(replacer.Output());
 ```
