@@ -2,7 +2,7 @@ repo_name: maxiomtech/TokenControlReplacer
 report_id: a8acb26ef8f52462ae3848f91238032c
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-27T19:58:28+00:00'
+timestamp: '2024-01-04T14:56:15+00:00'
 requested_by: jsheely
 provider: github
 branch: master
@@ -31,6 +31,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/maxiomtech/TokenControlReplacer
   detection_source: Repo Metadata
 - name: ".NET"
   description: A free, cross-platform, open source developer platform for building
@@ -55,6 +56,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/maxiomtech/TokenControlReplacer
   detection_source: Repo Metadata
 - name: Visual Studio
   description: State-of-the-art tools and services that you can use to create great
@@ -65,6 +67,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Integrated Development Environment
   image_url: https://img.stackshare.io/service/1451/SR2hUhQN.png
+  detection_source_url: https://github.com/maxiomtech/TokenControlReplacer/blob/master/ControlReplacer.sln
   detection_source: ControlReplacer.sln
   last_updated_by: Jonathan Sheely
   last_updated_on: 2014-02-18 03:07:12.000000000 Z
